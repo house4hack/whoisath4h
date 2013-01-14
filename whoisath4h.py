@@ -59,7 +59,7 @@ class WhoIsAtH4H(object):
         
     def isLocal(self):
         ip = request.remote.ip
-        return ip.startswith(IPSTARTWITH) or ip==LOCALHOST    
+        return (ip.startswith(IPSTARTWITH) and ip != HOSTIP) or ip==LOCALHOST    
         
     @cherrypy.expose 
     def index(self, startdate="", enddate="", all="0"):
@@ -98,6 +98,7 @@ class WhoIsAtH4H(object):
         title = ""
         checked = "" 
         otherdevices = []   
+        devices = []
 
         if lookup != "":
             devices = request.db.query(db.Device).filter(or_(db.Device.mac==lookup, db.Device.name==lookup)).all()

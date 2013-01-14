@@ -9,8 +9,9 @@ WHOISATH4H_DB = "mysql://whoisath4h:whoisath4hp4s5@localhost/whoisath4h"
 # ARP
 SALT = "h1h2h3h4h"
 ARPINGFREQ = 120
-ARPIP = "192.168.0.1/24"
-LOCALHOST = "127.0.0.1"
+ARPIP = "192.168.1.1/24"
+LOCALHOST = "disable127.0.0.1"
+HOSTIP = "192.168.1.6"
 
 # enum for visitor type
 NORMALUSER = 0
@@ -31,6 +32,6 @@ PASSWORD='whoisath4hp4s5'
 SERVER = 'localhost'
 
 #registration
-IPSTARTWITH = '192.168.0'
+IPSTARTWITH = '192.168.1'
 
 

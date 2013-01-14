@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+<H1><center>Who is now @House4Hack?</center></H1>
+</div>
+    <form method="post" action="submitRegistration">
+       <table>
+            <tr><td>Mac address</td><td><input name="mac" value="{{mac}}"/></td></tr>
+            <tr><td>Username</td><td><input name="name" value="{{name}}"/></td></tr>
+            <tr><td>Device description</td><td><input name="title" value="{{title}}"/></td></tr>
+            <tr><td>Hidden</td><td><input type="checkbox" name="hidden" value="1" {{checked}}></checkbox></td></tr>
+            <tr><td><input type="submit" value="Submit"/> </td></tr>
+       </table>     
+
+    </form>
+    <ol>
+    {% for dev in otherdevices %}
+       <li><a href="register?lookup={{dev.mac}}">Device - {{dev.title}}</a></li>
+    {% endfor %}
+    </ol>
+{% endblock %}
+
+

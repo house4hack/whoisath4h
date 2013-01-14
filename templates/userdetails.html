@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+<H1><center>User details</center></H1>
+</div>
+    <ul>
+        {% for item in users %}
+            <li>
+                <a href="debug?id={{ item.md5 }}">{{ item.username }} - {{ item.devicename }} ({{ counts[loop.index-1]}}) from {{ starttimes[loop.index-1] }}</a>
+            </li>
+        {% endfor %}
+    </table>   
+
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="hero-unit">
+<H1><center>Detailed packets</center></H1>
+</div>
+<div class="container">
+    <table border="1" class="altrowstable">
+        <tr>
+           {% for fieldname in fieldnames %}
+           <th> {{ fieldname }} </th>
+           {% endfor %}
+        </tr>   
+        {% for item in packets %}
+            <tr class="{{ loop.cycle('oddrowcolor', 'evenrowcolor') }}">
+            {% for fieldname in fieldnames %}
+                <td> {{ item.get(fieldname) }} </td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>  
+</div>  
+{% endblock %}
+
+

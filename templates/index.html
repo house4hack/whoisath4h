@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+<H1><center>Who is now @House4Hack?</center></H1>
+</div>
+<p>There are currently {{ total }} hackers (        
+        {%if all=="0" and local %}
+            <a href="/?all=1">Display hidden</a>
+        {%elif local%}
+            <a href="/">Remove hidden</a>
+        {%endif%})::
+    <ul>
+        {% for item in visits %}
+            <li>
+                {% if local %}
+                <a href="register?lookup={{ item.title }}">{{ item.title }}</a>
+                {% else %}
+                {{ item.title }}
+                {% endif %}
+            </li>
+        {% endfor %}
+        <br><br>
+    </table>   
+
+{% endblock %}
+
+
